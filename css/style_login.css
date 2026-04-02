@@ -1,0 +1,50 @@
+/* 1. Definición de identidad (Variables) */
+:root {
+    --primary: #2d0056;
+    --accent: #f8b400;
+    --bg: #f4f7f6;
+    --white: #ffffff;
+    --text: #333333;
+}
+
+/* 2. Reset y Layout base */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* 3. Estructura de la Tarjeta */
+.login-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    width: 100%;
+    max-width: 400px;
+}
+
+/* 4. Elementos de Formulario */
+.input-group { margin-bottom: 15px; text-align: left; }
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.btn-login {
+    width: 100%;
+    background: var(--primary);
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
