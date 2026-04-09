@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Sport Club Pro</title>
+    <link rel="stylesheet" href="css/style_login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<main class="login-container">
+
+    <div class="logo-central">
+        <img src="img/logo_empresa_letra_v1.png" alt="Sport Club Pro">
+    </div>
+
+    <section class="login-card">
+        <h2>Registro</h2>
+        <p>Crea tu cuenta</p>
+
+        <form action="#" method="post">
+
+            <div class="input-group">
+                <label>Nombre</label>
+                <input type="text" name="nombre">
+            </div>
+
+            <div class="input-group">
+                <label>Correo Electrónico</label>
+                <input type="email" name="email" required>
+            </div>
+
+            <div class="input-group">
+                <label>Contraseña</label>
+                <input type="password" name="password" required>
+            </div>
+
+            <div class="input-group">
+                <label>Edad</label>
+                <input type="number" name="edad">
+            </div>
+
+            <div class="input-group">
+                <label>¿Practica deporte?</label>
+                <select name="deporte">
+                    <option>Seleccionar</option>
+                    <option>Sí</option>
+                    <option>No</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Tipo de deporte</label>
+                <input type="text" name="tipo">
+            </div>
+
+            <div class="input-group">
+                <label>Objetivo personal</label>
+                <input type="text" name="objetivo">
+            </div>
+
+            <div class="input-group">
+                <label>Nivel</label>
+                <select name="nivel">
+                    <option>Principiante</option>
+                    <option>Intermedio</option>
+                    <option>Avanzado</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn-login">Registrarse</button>
+        </form>
+
+        <div class="login-footer">
+            <p>¿Ya tienes cuenta? 
+                <a href="login.html" class="link-bold">Inicia sesión</a>
+            </p>
+        </div>
+
+    </section>
+
+</main>
+
+</body>
+</html>
