@@ -261,11 +261,6 @@ body {
     color: var(--texto);
 }
 
-.admin-profile-card {
-    align-items: center;
-    min-height: 180px;
-}
-
 /* PROGRESS */
 .progress-box {
     display: flex;
@@ -656,30 +651,10 @@ th {
     display: block;
 }
 
-/* ADMIN EXTRA */
-.admin-search-box {
-    margin-bottom: 16px;
-}
-
-.admin-search-box input {
-    width: 100%;
-    padding: 12px 13px;
-    border: 1.5px solid #dfe4ea;
-    border-radius: 12px;
-    outline: none;
-    font-size: 0.95rem;
-    background: white;
-}
-
-.admin-search-box input:focus {
-    border-color: var(--admin);
-    box-shadow: 0 0 0 4px rgba(166, 30, 77, 0.08);
-}
-
+/* ADMIN REPORTES */
 .report-box {
     display: grid;
     gap: 12px;
-    margin-bottom: 18px;
 }
 
 .report-row {
@@ -699,67 +674,12 @@ th {
     color: var(--texto);
 }
 
-.admin-config-card {
-    border: 1px dashed rgba(166, 30, 77, 0.35);
-    background: linear-gradient(180deg, #fff 0%, #fff5f8 100%);
-    border-radius: 18px;
-    padding: 18px;
-    color: var(--admin);
-    font-weight: 700;
-    text-align: center;
-}
-
 .admin-list li {
     background: linear-gradient(180deg, #ffffff 0%, #fff7fa 100%);
     border-left: 5px solid var(--admin);
 }
 
-/* ADMIN LAYOUT */
-.admin-page {
-    padding: 18px 5% 28px;
-    display: grid;
-    gap: 16px;
-}
-
-.admin-title {
-    padding: 18px 24px !important;
-}
-
-.admin-title h2 {
-    margin-bottom: 0;
-    font-size: 1.25rem;
-}
-
-.admin-top-grid {
-    display: grid;
-    grid-template-columns: 0.95fr 1.4fr 0.95fr;
-    gap: 18px;
-    align-items: start;
-}
-
-.admin-bottom-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 18px;
-    align-items: start;
-}
-
-.admin-top-grid .panel,
-.admin-bottom-grid .panel {
-    padding: 20px;
-}
-
 /* RESPONSIVE */
-@media (max-width: 1200px) {
-    .admin-top-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .admin-bottom-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
 @media (max-width: 1100px) {
     .dashboard-layout,
     .class-grid,
@@ -789,8 +709,7 @@ th {
 
     .dashboard-header,
     .dashboard-nav,
-    .dashboard-layout,
-    .admin-page {
+    .dashboard-layout {
         padding-left: 18px;
         padding-right: 18px;
     }
