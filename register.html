@@ -3,84 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro - Sport Club Pro</title>
+    <title>Registro - SportClub</title>
     <link rel="stylesheet" href="css/style_login.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<main class="login-container">
+<main class="login-container register-wide">
 
     <div class="logo-central">
-        <img src="img/logo_empresa_letra_v1.png" alt="Sport Club Pro">
+        <img src="img/logo_empresa_letra_v1.png" alt="SportClub">
     </div>
 
     <section class="login-card">
-        <h2>Registro</h2>
-        <p>Crea tu cuenta</p>
+        <h2>Registro de usuario</h2>
+        <p>Crea tu cuenta para comenzar tu experiencia en SportClub</p>
 
-        <form action="#" method="post">
+        <form id="registerForm">
+            <div class="two-columns">
+                <div class="input-group">
+                    <label for="nombre">Nombre completo</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required>
+                </div>
 
-            <div class="input-group">
-                <label>Nombre</label>
-                <input type="text" name="nombre">
-            </div>
+                <div class="input-group">
+                    <label for="correoRegistro">Correo electrónico</label>
+                    <input type="email" id="correoRegistro" name="email" placeholder="usuario@correo.com" required>
+                </div>
 
-            <div class="input-group">
-                <label>Correo Electrónico</label>
-                <input type="email" name="email" required>
-            </div>
+                <div class="input-group">
+                    <label for="passwordRegistro">Contraseña</label>
+                    <input type="password" id="passwordRegistro" name="password" placeholder="••••••••" required>
+                </div>
 
-            <div class="input-group">
-                <label>Contraseña</label>
-                <input type="password" name="password" required>
-            </div>
+                <div class="input-group">
+                    <label for="confirmPasswordRegistro">Repetir contraseña</label>
+                    <input type="password" id="confirmPasswordRegistro" name="confirmPassword" placeholder="••••••••" required>
+                </div>
 
-            <div class="input-group">
-                <label>Edad</label>
-                <input type="number" name="edad">
-            </div>
+                <div class="input-group">
+                    <label for="rol">Tipo de cuenta</label>
+                    <select id="rol" name="rol" required>
+                        <option value="usuario">Usuario</option>
+                        <option value="coach">Coach</option>
+                        <option value="admin">Administrador</option>
+                    </select>
+                </div>
 
-            <div class="input-group">
-                <label>¿Practica deporte?</label>
-                <select name="deporte">
-                    <option>Seleccionar</option>
-                    <option>Sí</option>
-                    <option>No</option>
-                </select>
-            </div>
+                <div class="input-group">
+                    <label for="edad">Edad</label>
+                    <input type="number" id="edad" name="edad" placeholder="Ej: 24">
+                </div>
 
-            <div class="input-group">
-                <label>Tipo de deporte</label>
-                <input type="text" name="tipo">
-            </div>
+                <div class="input-group">
+                    <label for="tipoDeporte">Deporte o interés</label>
+                    <input type="text" id="tipoDeporte" name="tipoDeporte" placeholder="Ej: Funcional, Yoga, Crossfit">
+                </div>
 
-            <div class="input-group">
-                <label>Objetivo personal</label>
-                <input type="text" name="objetivo">
-            </div>
+                <div class="input-group">
+                    <label for="objetivo">Objetivo personal</label>
+                    <input type="text" id="objetivo" name="objetivo" placeholder="Ej: Mejorar condición física">
+                </div>
 
-            <div class="input-group">
-                <label>Nivel</label>
-                <select name="nivel">
-                    <option>Principiante</option>
-                    <option>Intermedio</option>
-                    <option>Avanzado</option>
-                </select>
+                <div class="input-group">
+                    <label for="nivel">Nivel</label>
+                    <select id="nivel" name="nivel">
+                        <option>Principiante</option>
+                        <option>Intermedio</option>
+                        <option>Avanzado</option>
+                    </select>
+                </div>
             </div>
 
             <button type="submit" class="btn-login">Registrarse</button>
         </form>
 
+        <div class="success-box hidden" id="registerMessage">
+            Tu registro fue realizado correctamente. Ahora puedes iniciar sesión.
+        </div>
+
         <div class="login-footer">
-            <p>¿Ya tienes cuenta? 
+            <p>¿Ya tienes cuenta?
                 <a href="login.html" class="link-bold">Inicia sesión</a>
             </p>
         </div>
-
     </section>
 
 </main>
 
+<script src="js/app.js"></script>
 </body>
 </html>
