@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Usuario - SportClub</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body" onload="initEditProfile('usuario'); initGoals(); initReservations();">
+
+    <header class="dashboard-header user-theme">
+        <div class="dashboard-brand">
+            <img src="../img/logo_empresa_letra_v1.png" alt="SportClub" class="dashboard-logo">
+            <div>
+                <h1>SportClub</h1>
+                <p>Panel de usuario</p>
+            </div>
+        </div>
+
+        <div class="header-actions">
+            <button class="btn btn-soft" onclick="openEditModal('usuario')">Editar perfil</button>
+            <button class="btn btn-soft" onclick="openGoalsModal()">Editar objetivos</button>
+            <button class="btn btn-gold" onclick="logout()">Cerrar sesión</button>
+        </div>
+    </header>
+
+    <nav class="dashboard-nav user-theme-light">
+        <a href="usuario.html">Inicio</a>
+        <a href="#perfil">Perfil</a>
+        <a href="#objetivos">Objetivos</a>
+        <a href="#reservas">Reservas</a>
+        <a href="#clases">Clases</a>
+    </nav>
+
+    <main class="dashboard-layout">
+        <section class="panel user-accent" id="perfil">
+            <h2>Mi perfil</h2>
+            <div class="profile-card">
+                <div class="avatar" data-profile-avatar>JP</div>
+                <div class="profile-info">
+                    <p><strong>Nombre:</strong> <span data-profile-name>Juan Pérez</span></p>
+                    <p><strong>Correo:</strong> <span data-profile-email>usuario@sportclub.com</span></p>
+                    <p><strong>Interés:</strong> <span data-profile-interest>Crossfit y Funcional</span></p>
+                    <p><strong>Nivel:</strong> <span data-profile-level>Intermedio</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel user-accent">
+            <h2>Mi progreso</h2>
+            <div class="progress-box">
+                <div class="progress-ring"></div>
+                <div>
+                    <p><strong>Asistencia mensual:</strong> 12 clases</p>
+                    <p><strong>Meta semanal:</strong> 4 entrenamientos</p>
+                    <p><strong>Estado:</strong> Muy buen progreso este mes</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel panel-full user-accent" id="objetivos">
+            <h2>Objetivos personales</h2>
+            <div class="goals-grid">
+                <article class="goal-card">
+                    <div class="goal-top">
+                        <h3 id="goalTitle1">Bajar porcentaje de grasa</h3>
+                        <span class="goal-status" id="goalStatus1">Cumpliendo</span>
+                    </div>
+                    <p id="goalDesc1">Mantener constancia en cardio y alimentación equilibrada durante el mes.</p>
+                </article>
+
+                <article class="goal-card">
+                    <div class="goal-top">
+                        <h3 id="goalTitle2">Mejorar resistencia cardiovascular</h3>
+                        <span class="goal-status" id="goalStatus2">Activo</span>
+                    </div>
+                    <p id="goalDesc2">Asistir a spinning y funcional para aumentar rendimiento físico.</p>
+                </article>
+
+                <article class="goal-card">
+                    <div class="goal-top">
+                        <h3 id="goalTitle3">Aumentar fuerza funcional</h3>
+                        <span class="goal-status" id="goalStatus3">Prioridad alta</span>
+                    </div>
+                    <p id="goalDesc3">Trabajar fuerza con ejercicios compuestos y seguimiento semanal.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="panel user-accent" id="reservas">
+            <h2>Mis reservas</h2>
+
+            <div class="reservation-feedback" id="reservationFeedback">
+                Reserva hecha correctamente.
+            </div>
+
+            <ul class="reservation-list" id="reservationList"></ul>
+        </section>
+
+        <section class="panel user-accent" id="clases">
+            <h2>Clases disponibles</h2>
+            <div class="class-grid">
+                <article class="class-card">
+                    <h3>Yoga</h3>
+                    <p>Mejora flexibilidad, respiración y equilibrio.</p>
+                    <span>Martes · 08:00 AM a 09:00 AM</span>
+                    <button class="btn btn-gold" onclick="reserveClass('Yoga', 'Martes', '08:00 AM a 09:00 AM')">Reservar</button>
+                </article>
+
+                <article class="class-card">
+                    <h3>Funcional</h3>
+                    <p>Trabajo completo de fuerza y movilidad.</p>
+                    <span>Miércoles · 07:00 PM a 08:00 PM</span>
+                    <button class="btn btn-gold" onclick="reserveClass('Funcional', 'Miércoles', '07:00 PM a 08:00 PM')">Reservar</button>
+                </article>
+
+                <article class="class-card">
+                    <h3>Spinning</h3>
+                    <p>Cardio intenso para ganar resistencia.</p>
+                    <span>Viernes · 05:00 PM a 06:00 PM</span>
+                    <button class="btn btn-gold" onclick="reserveClass('Spinning', 'Viernes', '05:00 PM a 06:00 PM')">Reservar</button>
+                </article>
+
+                <article class="class-card">
+                    <h3>Crossfit</h3>
+                    <p>Entrenamiento de alta intensidad.</p>
+                    <span>Lunes · 06:00 PM a 07:00 PM</span>
+                    <button class="btn btn-gold" onclick="reserveClass('Crossfit', 'Lunes', '06:00 PM a 07:00 PM')">Reservar</button>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal" id="editProfileModal">
+        <div class="modal-content">
+            <h3>Editar perfil</h3>
+            <form id="editProfileForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="editNombre">Nombre</label>
+                        <input type="text" id="editNombre" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editCorreo">Correo</label>
+                        <input type="email" id="editCorreo" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editInteres">Interés o deporte</label>
+                        <input type="text" id="editInteres" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editNivel">Nivel</label>
+                        <input type="text" id="editNivel" required>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="submit" class="btn btn-gold">Guardar cambios</button>
+                    <button type="button" class="btn btn-outline" onclick="closeEditModal()">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="goalsModal">
+        <div class="modal-content">
+            <h3>Editar objetivos personales</h3>
+            <form id="goalsForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="goal1TitleInput">Objetivo 1</label>
+                        <input type="text" id="goal1TitleInput" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="goal1StatusInput">Estado objetivo 1</label>
+                        <select id="goal1StatusInput" required>
+                            <option value="Activo">Activo</option>
+                            <option value="Pendiente">Pendiente</option>
+                            <option value="Cumpliendo">Cumpliendo</option>
+                            <option value="Prioridad alta">Prioridad alta</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="goal1DescInput">Descripción objetivo 1</label>
+                        <input type="text" id="goal1DescInput" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="goal2TitleInput">Objetivo 2</label>
+                        <input type="text" id="goal2TitleInput" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="goal2StatusInput">Estado objetivo 2</label>
+                        <select id="goal2StatusInput" required>
+                            <option value="Activo">Activo</option>
+                            <option value="Pendiente">Pendiente</option>
+                            <option value="Cumpliendo">Cumpliendo</option>
+                            <option value="Prioridad alta">Prioridad alta</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="goal2DescInput">Descripción objetivo 2</label>
+                        <input type="text" id="goal2DescInput" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="goal3TitleInput">Objetivo 3</label>
+                        <input type="text" id="goal3TitleInput" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="goal3StatusInput">Estado objetivo 3</label>
+                        <select id="goal3StatusInput" required>
+                            <option value="Activo">Activo</option>
+                            <option value="Pendiente">Pendiente</option>
+                            <option value="Cumpliendo">Cumpliendo</option>
+                            <option value="Prioridad alta">Prioridad alta</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="goal3DescInput">Descripción objetivo 3</label>
+                        <input type="text" id="goal3DescInput" required>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="submit" class="btn btn-gold">Guardar objetivos</button>
+                    <button type="button" class="btn btn-outline" onclick="closeGoalsModal()">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="../js/app.js"></script>
+</body>
+</html>

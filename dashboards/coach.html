@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Coach - SportClub</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body" onload="initEditProfile('coach')">
+
+    <header class="dashboard-header coach-theme">
+        <div class="dashboard-brand">
+            <img src="../img/logo_empresa_letra_v1.png" alt="SportClub" class="dashboard-logo">
+            <div>
+                <h1>SportClub</h1>
+                <p>Panel de coach</p>
+            </div>
+        </div>
+
+        <div class="header-actions">
+            <button class="btn btn-soft" onclick="openEditModal('coach')">Editar perfil</button>
+            <button class="btn btn-gold" onclick="logout()">Cerrar sesión</button>
+        </div>
+    </header>
+
+    <nav class="dashboard-nav coach-theme-light">
+        <a href="coach.html">Inicio</a>
+        <a href="#perfil">Perfil</a>
+        <a href="#alumnos">Alumnos</a>
+        <a href="#clases">Clases</a>
+        <a href="#horario">Horario</a>
+        <a href="#reportes">Reportes</a>
+    </nav>
+
+    <main class="dashboard-layout">
+        <section class="panel coach-accent" id="perfil">
+            <h2>Perfil del coach</h2>
+            <div class="profile-card">
+                <div class="avatar" data-profile-avatar>MC</div>
+                <div class="profile-info">
+                    <p><strong>Nombre:</strong> <span data-profile-name>María Contreras</span></p>
+                    <p><strong>Correo:</strong> <span data-profile-email>coach@sportclub.com</span></p>
+                    <p><strong>Especialidad:</strong> <span data-profile-interest>Entrenamiento funcional</span></p>
+                    <p><strong>Cargo:</strong> <span data-profile-level>Coach Senior</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel coach-accent" id="clases">
+            <h2>Clases asignadas</h2>
+            <div class="mini-cards">
+                <div class="mini-card">
+                    <h3>Entrenamiento Funcional</h3>
+                    <p>Martes · 07:00 PM a 08:00 PM</p>
+                </div>
+                <div class="mini-card">
+                    <h3>Crossfit</h3>
+                    <p>Jueves · 06:30 PM a 07:30 PM</p>
+                </div>
+                <div class="mini-card">
+                    <h3>Evaluación física</h3>
+                    <p>Sábado · 10:00 AM a 11:00 AM</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel panel-full coach-accent" id="alumnos">
+            <h2>Lista de alumnos</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Plan</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Juan Pérez</td>
+                            <td>juan@mail.com</td>
+                            <td>Funcional</td>
+                            <td>Activo</td>
+                        </tr>
+                        <tr>
+                            <td>Camila Soto</td>
+                            <td>camila@mail.com</td>
+                            <td>Yoga</td>
+                            <td>Activo</td>
+                        </tr>
+                        <tr>
+                            <td>Diego Torres</td>
+                            <td>diego@mail.com</td>
+                            <td>Crossfit</td>
+                            <td>Constante</td>
+                        </tr>
+                        <tr>
+                            <td>Valentina Rojas</td>
+                            <td>valentina@mail.com</td>
+                            <td>Spinning</td>
+                            <td>En evaluación</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="panel panel-full coach-accent" id="horario">
+            <h2>Calendario de trabajo</h2>
+            <div class="schedule-grid">
+                <div class="schedule-day active">
+                    <h3>Lunes</h3>
+                    <p>08:00 AM a 12:00 PM</p>
+                    <span>Planificación y seguimiento</span>
+                </div>
+                <div class="schedule-day active">
+                    <h3>Martes</h3>
+                    <p>03:00 PM a 09:00 PM</p>
+                    <span>Funcional y evaluación</span>
+                </div>
+                <div class="schedule-day active">
+                    <h3>Miércoles</h3>
+                    <p>10:00 AM a 02:00 PM</p>
+                    <span>Entrenamientos personalizados</span>
+                </div>
+                <div class="schedule-day active">
+                    <h3>Jueves</h3>
+                    <p>03:00 PM a 09:00 PM</p>
+                    <span>Crossfit y seguimiento</span>
+                </div>
+                <div class="schedule-day active">
+                    <h3>Viernes</h3>
+                    <p>09:00 AM a 01:00 PM</p>
+                    <span>Sesiones individuales</span>
+                </div>
+                <div class="schedule-day soft">
+                    <h3>Sábado</h3>
+                    <p>10:00 AM a 12:00 PM</p>
+                    <span>Clase especial</span>
+                </div>
+                <div class="schedule-day off">
+                    <h3>Domingo</h3>
+                    <p>Libre</p>
+                    <span>Sin actividades</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel panel-full coach-accent" id="reportes">
+            <h2>Reportes del coach</h2>
+            <div class="stats-grid">
+                <div class="stat-card-dashboard">
+                    <h3 class="coach-number">24</h3>
+                    <p>Alumnos asignados</p>
+                </div>
+                <div class="stat-card-dashboard">
+                    <h3 class="coach-number">12</h3>
+                    <p>Clases esta semana</p>
+                </div>
+                <div class="stat-card-dashboard">
+                    <h3 class="coach-number">87%</h3>
+                    <p>Asistencia promedio</p>
+                </div>
+                <div class="stat-card-dashboard">
+                    <h3 class="coach-number">6</h3>
+                    <p>Evaluaciones pendientes</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal" id="editProfileModal">
+        <div class="modal-content">
+            <h3>Editar perfil</h3>
+            <form id="editProfileForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="editNombre">Nombre</label>
+                        <input type="text" id="editNombre" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editCorreo">Correo</label>
+                        <input type="email" id="editCorreo" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editInteres">Especialidad</label>
+                        <input type="text" id="editInteres" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editNivel">Cargo</label>
+                        <input type="text" id="editNivel" required>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="submit" class="btn btn-gold">Guardar cambios</button>
+                    <button type="button" class="btn btn-outline" onclick="closeEditModal()">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="../js/app.js"></script>
+</body>
+</html>

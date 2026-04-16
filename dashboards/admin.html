@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin - SportClub</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body" onload="initEditProfile('admin')">
+
+    <header class="dashboard-header admin-theme">
+        <div class="dashboard-brand">
+            <img src="../img/logo_empresa_letra_v1.png" alt="SportClub" class="dashboard-logo">
+            <div>
+                <h1>SportClub</h1>
+                <p>Panel administrador</p>
+            </div>
+        </div>
+
+        <div class="header-actions">
+            <button class="btn btn-soft" onclick="openEditModal('admin')">Editar perfil</button>
+            <button class="btn btn-gold" onclick="logout()">Cerrar sesión</button>
+        </div>
+    </header>
+
+    <nav class="dashboard-nav admin-theme-light">
+        <a href="admin.html">Inicio</a>
+        <a href="#perfil">Perfil</a>
+        <a href="#estadisticas">Estadísticas</a>
+        <a href="#usuarios">Usuarios</a>
+        <a href="#panel">Panel</a>
+        <a href="#configuracion">Configuración</a>
+    </nav>
+
+    <main class="dashboard-layout">
+        <section class="panel admin-accent" id="perfil">
+            <h2>Perfil del administrador</h2>
+            <div class="profile-card">
+                <div class="avatar" data-profile-avatar>CH</div>
+                <div class="profile-info">
+                    <p><strong>Nombre:</strong> <span data-profile-name>Claudio Herrera</span></p>
+                    <p><strong>Correo:</strong> <span data-profile-email>admin@sportclub.com</span></p>
+                    <p><strong>Área:</strong> <span data-profile-interest>Gestión del sistema</span></p>
+                    <p><strong>Rol:</strong> <span data-profile-level>Administrador general</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel admin-accent" id="estadisticas">
+            <h2>Estadísticas generales</h2>
+            <div class="stats-grid">
+                <div class="stat-card-dashboard">
+                    <h3 class="admin-number">128</h3>
+                    <p>Total usuarios</p>
+                </div>
+                <div class="stat-card-dashboard">
+                    <h3 class="admin-number">14</h3>
+                    <p>Clases activas</p>
+                </div>
+                <div class="stat-card-dashboard">
+                    <h3 class="admin-number">5</h3>
+                    <p>Coaches registrados</p>
+                </div>
+                <div class="stat-card-dashboard">
+                    <h3 class="admin-number">89</h3>
+                    <p>Usuarios activos</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel panel-full admin-accent" id="usuarios">
+            <h2>Gestión de usuarios</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Rol</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Juan Pérez</td>
+                            <td>usuario@sportclub.com</td>
+                            <td>Usuario</td>
+                            <td>Activo</td>
+                        </tr>
+                        <tr>
+                            <td>María Contreras</td>
+                            <td>coach@sportclub.com</td>
+                            <td>Coach</td>
+                            <td>Activo</td>
+                        </tr>
+                        <tr>
+                            <td>Claudio Herrera</td>
+                            <td>admin@sportclub.com</td>
+                            <td>Administrador</td>
+                            <td>Activo</td>
+                        </tr>
+                        <tr>
+                            <td>Andrea Fuentes</td>
+                            <td>andrea@mail.com</td>
+                            <td>Usuario</td>
+                            <td>Inactivo</td>
+                        </tr>
+                        <tr>
+                            <td>Felipe Soto</td>
+                            <td>felipe@mail.com</td>
+                            <td>Coach</td>
+                            <td>Activo</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="panel admin-accent" id="panel">
+            <h2>Panel de control</h2>
+            <div class="mini-cards">
+                <div class="mini-card">
+                    <h3>Usuarios activos</h3>
+                    <p>89 usuarios conectados recientemente.</p>
+                </div>
+                <div class="mini-card">
+                    <h3>Clases del día</h3>
+                    <p>8 clases programadas hoy.</p>
+                </div>
+                <div class="mini-card">
+                    <h3>Reservas activas</h3>
+                    <p>42 reservas registradas actualmente.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel admin-accent" id="configuracion">
+            <h2>Configuración del sistema</h2>
+            <ul class="simple-list">
+                <li><span>Actualizar horarios generales</span><strong>Disponible</strong></li>
+                <li><span>Gestionar roles y permisos</span><strong>Disponible</strong></li>
+                <li><span>Editar clases disponibles</span><strong>Disponible</strong></li>
+                <li><span>Revisar reportes del sistema</span><strong>Disponible</strong></li>
+            </ul>
+        </section>
+    </main>
+
+    <div class="modal" id="editProfileModal">
+        <div class="modal-content">
+            <h3>Editar perfil</h3>
+            <form id="editProfileForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="editNombre">Nombre</label>
+                        <input type="text" id="editNombre" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editCorreo">Correo</label>
+                        <input type="email" id="editCorreo" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editInteres">Área</label>
+                        <input type="text" id="editInteres" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editNivel">Rol</label>
+                        <input type="text" id="editNivel" required>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="submit" class="btn btn-gold">Guardar cambios</button>
+                    <button type="button" class="btn btn-outline" onclick="closeEditModal()">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="../js/app.js"></script>
+</body>
+</html>
